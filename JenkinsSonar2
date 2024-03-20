@@ -48,12 +48,12 @@ stage('Deploy') {
 		snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"master"}""")
 		snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
 		//snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}',configurationName: 'DevOps-rpvr3.service-now.com-1709727767377'	 	
-	         changeRequestNumber = snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "e55d0bfec343101035ae3f52c1d3ae49","standard_change_template": "b1c8d15147810200e90d87e8dee490f7"}}'
-		//snDevOpsChange()
+	         //snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "e55d0bfec343101035ae3f52c1d3ae49","standard_change_template": "b1c8d15147810200e90d87e8dee490f7"}}'
+		snDevOpsChange()
 		stageName = "Deploy"
 		//changeRequestNumber = snDevOpsGetChangeNumber(changeDetails: """{"stage_name":"${stageName}"}""")
 		 //changeRequestNumber = snDevOpsGetChangeNumber changeDetails: """{ "pipeline_name": "Riya_Scripted2", "build_number": "${buildNo}", "stage_name": "Deploy", "branch_name": "master"}"""
-	        snDevOpsChange changeCreationTimeOut: 3600, changeRequestDetails: '{ "attributes": { "short_description": "Test description", "priority": "1", "start_date": "2024-01-11 08:00:00", "end_date": "2024-01-11 08:00:00", "justification": "test justification", "description": "test description", "cab_required": true, "comments": "This update for work notes is from jenkins file", "work_notes": "test work notes", "assignment_group": "a715cd759f2002002920bde8132e7018" }, "setCloseCode": false }', changeStepTimeOut: 18000, pollingInterval: 30
+	      /*  snDevOpsChange changeCreationTimeOut: 3600, changeRequestDetails: '{ "attributes": { "short_description": "Test description", "priority": "1", "start_date": "2024-01-11 08:00:00", "end_date": "2024-01-11 08:00:00", "justification": "test justification", "description": "test description", "cab_required": true, "comments": "This update for work notes is from jenkins file", "work_notes": "test work notes", "assignment_group": "a715cd759f2002002920bde8132e7018" }, "setCloseCode": false }', changeStepTimeOut: 18000, pollingInterval: 30
 		echo "${changeRequestNumber}"
 		snDevOpsUpdateChangeInfo(changeRequestDetails: 
                         """{
@@ -70,7 +70,7 @@ stage('Deploy') {
                             "comments": "This update for comments is from jenkins file",
                             "work_notes": "This update for work_notes is from jenkins file"
                         }""", 
-                        changeRequestNumber: """${changeRequestNumber}""")
+                        changeRequestNumber: """${changeRequestNumber}""")*/
 		 
 		}
             }
