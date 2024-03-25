@@ -47,7 +47,7 @@ stage('Deploy') {
 	       // snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 		snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"master"}""")
 		snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
-		snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}',"autoCloseCode": true 	
+		snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}',"autoCloseChange": true 	
 	         //snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "e55d0bfec343101035ae3f52c1d3ae49","standard_change_template": "b1c8d15147810200e90d87e8dee490f7"}}'
 		//snDevOpsChange()
 		stageName = "Deploy"
