@@ -47,7 +47,7 @@ pipeline {
        {
 	   steps {
                 echo 'Security .... from test branch 11'
-	 	snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
+	 	//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 	}
     }
 
