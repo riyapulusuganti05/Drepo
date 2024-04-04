@@ -1,0 +1,43 @@
+pipeline {
+	agent any
+        
+	tools {
+		maven "Maven"
+	}
+	stages {
+		stage('Build') {
+			when {
+				expression {
+				equals expected: 2, actual: 2
+				return env.SKIP_BUILD == 'true'
+			   }
+				equals expected: 2, actual: 2
+			}
+			steps {
+				echo 'Running build stage'
+			}
+		}
+		stage('Test') {
+			when {
+                              expression {
+				equals expected: 2, actual: 2
+				return env.SKIP_TEST == 'true'
+			   }
+			}
+			steps {
+				echo 'Running test stage'
+				
+				// error 'Failing the Test stage'
+			}
+		}
+		stage('Deploy') {
+			when {
+				equals expected: 2, actual: 2
+			}
+			steps {
+				echo 'Running deploy stage'
+        			 snDevOpsChange()
+			}
+		}
+	}
+}
