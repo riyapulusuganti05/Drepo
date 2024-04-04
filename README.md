@@ -11,12 +11,18 @@ fkenefklewnmf
 ldkf;lkd,f
 dm,snkjd
 dbjbfkebnd fk.n e.ke
-hnvbjmj,b, nm 
-dkmklefmklew
+hnvbjmj,b, nm dm, fc,.ds
+dkmklefmklewvcdv
 ckjdnljckndsklcm
 dklnkljdmwld
 dksjdnkljsdkl;lm
 nkjdsnlfkncs
 DKLSJNDKLMSK
-dkml;smd;lcascxas
+dkml;smd;lcascxasc,m dkc l;ds,c;lds.
 kcmnlkdmnefle
+mdcnj,ms 
+cm,dk,.c l;d,cl
+mc dk,mck;ldklc
+cm, dm,f cm,,d mc dsmcm,ds
+dlmksdkmflkdlem,
+kdmksmamkfcl,s
