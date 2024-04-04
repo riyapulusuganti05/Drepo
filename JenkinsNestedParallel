@@ -107,6 +107,13 @@ pipeline {
 				stage('parallelTest2') {
 					stages {
 						stage("nested_inside_parallel2") {
+							steps{
+								sonarSummaries()
+							}
+
+						}
+
+						stage("nested_inside_parallel3") {
 							steps {
 								sleep 20
 								sh 'mvn test -Dpublish'
@@ -114,7 +121,7 @@ pipeline {
 								sleep 5
 								//junit "**/target/surefire-reports/*.xml"
 								sleep 15
-								sonarSummaries()
+								//sonarSummaries()
 							        snDevOpsChange()
 								
 							}
