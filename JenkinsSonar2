@@ -43,16 +43,16 @@ pipeline {
            }
        }
 
-    stage('Security')
+      stage('Security')
        {
 	   steps {
                 echo 'Security ....'
 	 	//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
-	}
-    }
+	 }
+      }
 
    
-stage('Deploy') {
+    stage('Deploy') {
             steps {
 		script{
 		//sh 'mvn -B package --file pom.xml'    
