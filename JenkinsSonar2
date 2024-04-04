@@ -46,7 +46,7 @@ pipeline {
     stage('Security')
        {
 	   steps {
-                echo 'Security ....'
+                echo 'Security .... from test branch 11'
 	 	snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 	}
     }
@@ -76,7 +76,7 @@ stage('Deploy') {
             steps {
 		script{
 		//sh 'mvn -B package --file pom.xml'    
-                echo 'Running deploy stage' 
+                echo 'Running deploy stage from testbranch 11' 
 	       // snDevOpsSecurityResult configurationName: "DevOps-devopsqevancouver002.service-now.com-1709901502633",securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 		snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"master"}""")
 		snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
