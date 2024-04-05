@@ -46,8 +46,8 @@ pipeline {
 	   steps {
                 echo 'Security ....'
 		sh 'mvn -B package --file pom.xml'   
-		veracode applicationName: "VeraDemo10", criticality: 'VeryHigh', debug: true, timeout: 20, fileNamePattern: '', pHost: '', pPassword: '', pUser: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "${BUILD_TAG}", uploadExcludesPattern: '', uploadIncludesPattern: 'target/DemoMavenProject-0.0.1-SNAPSHOT.jar', vid: "5a57339d6779ffb76782e03df3f6e9d1", vkey: "f31d151c427a3286469a6291b14dee15e7f553e066b32c801f09014dc3282de4f51a81cd0bde7c7dd9d95de9a71a32c8a2c582158f278320ae765fe9fd232e0a",waitForScan : true
-	 	//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
+		//veracode applicationName: "VeraDemo10", criticality: 'VeryHigh', debug: true, timeout: 20, fileNamePattern: '', pHost: '', pPassword: '', pUser: '', replacementPattern: '', sandboxName: '', scanExcludesPattern: '', scanIncludesPattern: '', scanName: "${BUILD_TAG}", uploadExcludesPattern: '', uploadIncludesPattern: 'target/DemoMavenProject-0.0.1-SNAPSHOT.jar', vid: "5a57339d6779ffb76782e03df3f6e9d1", vkey: "f31d151c427a3286469a6291b14dee15e7f553e066b32c801f09014dc3282de4f51a81cd0bde7c7dd9d95de9a71a32c8a2c582158f278320ae765fe9fd232e0a",waitForScan : true
+	 	snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 	}
     }
 
@@ -58,8 +58,8 @@ stage('Deploy') {
 		//sh 'mvn -B package --file pom.xml'    
                 echo 'Running deploy stage' 
 	       // snDevOpsSecurityResult configurationName: "DevOps-devopsqevancouver002.service-now.com-1709901502633",securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
-		snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"master"}""")
-		snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
+		snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"${env.BRANCH_NAME}"}""")
+		snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"${env.BRANCH_NAME}"}""")
 		//snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}',configurationName: 'DevOps-rpvr3.service-now.com-1709727767377'	 	
 	       // snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 30
 	        //snDevOpsChange()
