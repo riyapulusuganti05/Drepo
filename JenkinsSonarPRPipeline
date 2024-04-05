@@ -98,8 +98,8 @@ stage('Merge and Deploy') {
                             "work_notes": "This update for work_notes is from jenkins file"
                         }""", 
                         changeRequestNumber: """${changeRequestNumber}""")
-		 // Your merge and deployment steps here
-                // This stage runs after merge
+		    // Your merge and deployment steps here
+                   // This stage runs after merge
             }
         }
     }
