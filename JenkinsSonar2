@@ -130,7 +130,7 @@ stage('Deploy') {
 		//waitForQualityGate abortPipeline: false
 	//}
 }
-      
+        
       
   
 
