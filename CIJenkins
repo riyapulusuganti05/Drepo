@@ -65,6 +65,7 @@ pipeline {
 			steps {
 				echo "Running Security step ..."
 				//snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode", "applicationName": "${env.VERACODE_APPLICATION_NAME}"}'
+				snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "d478a5aa876e3110c67da8673cbb35c5"}'
 			}
 		}
 		
