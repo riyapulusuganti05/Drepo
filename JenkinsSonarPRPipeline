@@ -124,7 +124,7 @@ stage('Merge and Deploy') {
 		//waitForQualityGate abortPipeline: false
 	//}
 }
-      
+
       
   
 
