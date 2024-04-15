@@ -7,7 +7,7 @@ def version = "${env.BUILD_NUMBER}.0"
 def pkgName = "devops-snow-build-pkg_${env.BUILD_NUMBER}"
 def changeRequestNumber = "null"
 def buildNo ="${env.BUILD_NUMBER}"
-def currStageName = "none"
+def currStageName = "none" 
 
 pipeline {
   agent any 
