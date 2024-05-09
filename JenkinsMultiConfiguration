@@ -63,6 +63,8 @@ pipeline {
   }
 }
 
+}
+
 
  def sonarSummaries() {
 	withSonarQubeEnv('sonarcloud.io'){
