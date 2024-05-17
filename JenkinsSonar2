@@ -122,10 +122,10 @@ stage('Deploy') {
 			sh '${SCANNER_HOME}/bin/sonar-scanner'
 		} else {
 			sh 'mvn clean verify sonar:sonar \
-			    -Dsonar.login=fca7879e3db872450daa7a82cef08f1d21a3f55a \
+			    -Dsonar.login=8c5fe0915a1e4b00995edc284975b4f6d568a5c9 \
 			    -Dsonar.host.url=https://sonarcloud.io \
-			    -Dsonar.organization=awasthi1210 \
-			    -Dsonar.projectKey=awasthi1210_servicenow-devops-change'
+			    -Dsonar.organization=riyapulusuganti05 \
+			    -Dsonar.projectKey=riyapulusuganti05_Drepo'
 		}
 	}
 	//timeout(time: 1, unit: 'MINUTES') {
