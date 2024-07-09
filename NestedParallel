@@ -8,8 +8,8 @@ pipeline {
                 // Your build steps here
             }
         }
-        
-        stage('Parallel Tests') {
+
+        stage('Test') {
             parallel {
                 stage('Unit Tests') {
                     steps {
@@ -23,19 +23,28 @@ pipeline {
                         // Your integration test steps here
                     }
                 }
-                stage('Functional Tests') {
+                stage('Additional Tests') {
                     steps {
-                        echo 'Running functional tests...'
-                        // Your functional test steps here
+                        script {
+                            parallel(
+                                'Nested Stage 1': {
+                                    echo 'Running nested parallel stage 1...'
+                                    // Your nested parallel stage 1 steps here
+                                },
+                                'Nested Stage 2': {
+                                    echo 'Running nested parallel stage 2...'
+                                    // Your nested parallel stage 2 steps here
+                                }
+                            )
+                        }
                     }
                 }
             }
         }
-        
+
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                snDevOpsChange()
                 // Your deploy steps here
             }
         }
