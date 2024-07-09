@@ -2,44 +2,51 @@ pipeline {
     agent any
 
     stages {
-        stage('Build and Test') {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Your build steps here
+            }
+        }
+        
+        stage('Test') {
             parallel {
-                stage('Build') {
+                stage('Unit Tests') {
                     steps {
-                        echo 'Building...'
-                        // Add your build steps here
+                        echo 'Running unit tests...'
+                        // Your unit test steps here
                     }
                 }
-                stage('Test') {
+                stage('Integration Tests') {
+                    steps {
+                        echo 'Running integration tests...'
+                        // Your integration test steps here
+                    }
+                }
+                stage('Nested Parallel') {
                     parallel {
-                        stage('Unit Test') {
+                        stage('Nested Stage 1') {
                             steps {
-                                echo 'Running Unit Tests...'
-                                // Add your unit test steps here
+                                echo 'Running nested parallel stage 1...'
+                                // Your nested parallel stage 1 steps here
                             }
                         }
-                        stage('Integration Test') {
+                        stage('Nested Stage 2') {
                             steps {
-                                echo 'Running Integration Tests...'
-                                // Add your integration test steps here
+                                echo 'Running nested parallel stage 2...'
+                                // Your nested parallel stage 2 steps here
                             }
                         }
                     }
                 }
             }
         }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
-            // Add your cleanup steps here
-        }
-        success {
-            echo 'Build and Test stages succeeded!'
-        }
-        failure {
-            echo 'Build and Test stages failed!'
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Your deploy steps here
+            }
         }
     }
 }
