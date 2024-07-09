@@ -50,7 +50,7 @@ pipeline {
 								 //sh 'mvn test -Dpublish'
 								sleep 5
 								junit "**/target/surefire-reports/*.xml"
-							        snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
+							      //  snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
 								sleep 15
 							}
 							post {
