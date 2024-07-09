@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build and Test') {
+            parallel {
+                stage('Build') {
+                    steps {
+                        echo 'Building...'
+                        // Add your build steps here
+                    }
+                }
+                stage('Test') {
+                    parallel {
+                        stage('Unit Test') {
+                            steps {
+                                echo 'Running Unit Tests...'
+                                // Add your unit test steps here
+                            }
+                        }
+                        stage('Integration Test') {
+                            steps {
+                                echo 'Running Integration Tests...'
+                                // Add your integration test steps here
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up...'
+            // Add your cleanup steps here
+        }
+        success {
+            echo 'Build and Test stages succeeded!'
+        }
+        failure {
+            echo 'Build and Test stages failed!'
+        }
+    }
+}
