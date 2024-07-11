@@ -23,7 +23,7 @@ pipeline {
               echo 'Build Satge'
                sh 'mvn -B -DskipTests clean compile'
 	     // snDevOpsChange(ignoreErrors:false)
-	        sonarSummaries()
+	       // sonarSummaries()
 
            }
        }
