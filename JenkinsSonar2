@@ -10,7 +10,7 @@ def buildNo ="${env.BUILD_NUMBER}"
 def currStageName = "none"
  
 pipeline {
-  agent any
+  agent any 
   tools {
        maven 'Maven'
    }
