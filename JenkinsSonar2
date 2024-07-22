@@ -110,8 +110,8 @@ stage('Deploy') {
 			    -Dsonar.login=1ff462f03228674e3a684569d716aad1aff286bb \
 			    -Dsonar.host.url=https://sonarcloud.io \
 			    -Dsonar.organization=riyapulusuganti \
-			    -Dsonar.projectKey=riyapulusuganti_Demo'
-			    -Dsonar.branch.name=${env.GIT_BRANCH}
+			    -Dsonar.projectKey=riyapulusuganti_Demo
+			    -Dsonar.branch.name=${env.GIT_BRANCH}'
 		}
 	}
 	//timeout(time: 1, unit: 'MINUTES') {
