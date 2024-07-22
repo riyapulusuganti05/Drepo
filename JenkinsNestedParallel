@@ -98,7 +98,7 @@ pipeline {
 								  },
 								  "setCloseCode": false,
 								  "autoCloseChange": true
-								}""", changeStepTimeOut: 18000, configurationName: 'DevOps-wp1dcvpi9bugbashsc.service-now.com-1710405303027', pollingInterval: 60
+								}""", changeStepTimeOut: 18000, pollingInterval: 60
 							}							
 						}
 
