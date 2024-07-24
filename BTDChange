@@ -33,7 +33,7 @@ def sonarSummaries() {
 			    -Dsonar.host.url=https://sonarcloud.io \
 			    -Dsonar.organization=riyapulusuganti05 \
 			    -Dsonar.projectKey=riyapulusuganti05_Drepo \
-			    -Dsonar.branch.name=july22'
+			    -Dsonar.branch.name=${env.GIT_BRANCH}'
 		}
 	}
 	//timeout(time: 1, unit: 'MINUTES') {
