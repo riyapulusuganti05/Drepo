@@ -5,6 +5,8 @@ pipeline {
     }
     environment {
 	 SCANNER_HOME = tool 'sonarScanner' 
+	 JAVA_HOME = '/Users/riya.pulusuganti/.jenv/versions/11.0'
+        PATH = "${JAVA_HOME}/bin:${SONAR_SCANNER_HOME}/bin:${env.PATH}"
 	}  
    stages { 
 
