@@ -22,8 +22,8 @@ pipeline {
              steps {
                 echo 'Build Satge'
                  sh 'mvn -B -DskipTests clean compile'
-  	             snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'rpwdc3'
-                     snDevOpsPackage artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'rpwdc3', name: 'packageName'
+  	             snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'DevOps-checkmarx05.service-now.com-1722502575571'
+                     snDevOpsPackage artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'rpwdc3', name: 'DevOps-checkmarx05.service-now.com-1722502575571'
              }
          }
          stage('Test') {
