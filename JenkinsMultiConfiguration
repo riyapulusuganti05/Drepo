@@ -47,7 +47,7 @@ pipeline {
          {
   	   steps {
             echo 'Security ....'
-                     snDevOpsSecurityResult configurationName: 'rpwdc3', securityResultAttributes: '{"scanner": "Veracode", "applicationName": "PetStoreAPI-Github", "buildVersion": "", "securityToolId": ""}'
+                     snDevOpsSecurityResult configurationName: 'DevOps-checkmarx05.service-now.com-1722502575571', securityResultAttributes: '{"scanner": "Veracode", "applicationName": "PetStoreAPI-Github", "buildVersion": "", "securityToolId": ""}'
 		      //snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "632ff27387d10610597bca26cebb3576"}'
 	 	      //snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 			
