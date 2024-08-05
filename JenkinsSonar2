@@ -36,11 +36,11 @@ pipeline {
 	       // snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10', 'securityToolId' : ''}"
                // sh 'mvn test'
            }
-         // post {
-         //    always {
-           //     junit "**/target/surefire-reports/TEST-DevOpsDemo.Calculator.CalculatorTest.xml"
-          //   }
-         //  }
+          post {
+            always {
+               junit "**/target/surefire-reports/TEST-DevOpsDemo.Calculator.CalculatorTest.xml"
+            }
+          }
        }
 
      stage('Security') 
