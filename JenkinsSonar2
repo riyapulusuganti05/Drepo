@@ -48,7 +48,7 @@ pipeline {
 	   steps {
                 echo 'Security ....'
 		//snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "632ff27387d10610597bca26cebb3576"}'
-	 	snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10','securityToolId' : ''}"
+	 	//snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10','securityToolId' : ''}"
 	}
     }
 
@@ -62,8 +62,8 @@ pipeline {
 		snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"master"}""")
 		snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"master"}""")
 		//snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"}}',configurationName: 'DevOps-rpvr3.service-now.com-1709727767377'	 	
-	      //  snDevOpsChange changeRequestDetails: '{ "attributes": {"type": "standard","assignment_group": "aaccc971c0a8001500fe1ff4302de101", "std_change_template": "126db729b76033004f68badcde11a973"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 30
-	        snDevOpsChange()
+	        snDevOpsChange changeRequestDetails: '{ "attributes": {"type": "standard","assignment_group": "aaccc971c0a8001500fe1ff4302de101", "std_change_template": "126db729b76033004f68badcde11a973"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 30
+	       // snDevOpsChange()
 		stageName = "Deploy"
 		
 	       //changeRequestNumber = snDevOpsGetChangeNumber changeDetails: """{ "pipeline_name": "Riya_Scripted2", "build_number": "${buildNo}", "stage_name": "Deploy", "branch_name": "master"}"""
