@@ -16,7 +16,7 @@ pipeline {
 		stage('Register Package') {
 			steps {
 
-			       checkmarxASTScanner additionalOptions: '', baseAuthUrl: '', branchName: 'main', checkmarxInstallation: 'CheckmarxCloud', credentialsId: '', projectName: 'JenkinsPipleineCxOne', serverUrl: '', tenantName: ''
+			       //checkmarxASTScanner additionalOptions: '', baseAuthUrl: '', branchName: 'main', checkmarxInstallation: 'CheckmarxCloud', credentialsId: '', projectName: 'JenkinsPipleineCxOne', serverUrl: '', tenantName: ''
 				snDevOpsPackage(
 					name: "${packageName}",
 					artifactsPayload: """
