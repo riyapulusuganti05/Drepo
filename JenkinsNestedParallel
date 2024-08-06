@@ -7,7 +7,7 @@ def repoName = "Demo"
 pipeline {
 	agent any
 	tools {
-		maven 'Maven'
+		maven 'Maven' 
 	}
 	environment {
 		SCANNER_HOME = tool 'sonarScanner'
