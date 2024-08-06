@@ -22,8 +22,8 @@ pipeline {
              steps {
                 echo 'Build Satge'
                  sh 'mvn -B -DskipTests clean compile'
-  	             snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'rpwdc3'
-                     snDevOpsPackage artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'rpwdc3', name: 'test'
+  	             snDevOpsArtifact artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'DevOps-rpwdc2.service-now.com-1722935842329'
+                     snDevOpsPackage artifactsPayload: '{"artifacts":[{"name": "sa-web.jar", "version": "1.9", "repositoryName": "services-1031"}, {"name": "sa-db.jar", "version": "1.3.2", "repositoryName": "services-1032"}], "branchName": "master"}', configurationName: 'DevOps-rpwdc2.service-now.com-1722935842329', name: 'test'
              }
          }
          stage('Test') {
@@ -36,18 +36,18 @@ pipeline {
                  // sh 'mvn test'
              }
 	  }
-             //post {
-             //  always {
-                  //junit "**/target/surefire-reports/TEST-DevOpsDemo.Calculator.CalculatorTest.xml"
-             //  }
-           //  }
-        // }
+             post {
+               always {
+                  junit "**/target/surefire-reports/TEST-DevOpsDemo.Calculator.CalculatorTest.xml"
+              }
+         }
+     }
   
        stage('Security') 
          {
   	   steps {
             echo 'Security ....'
-                     snDevOpsSecurityResult configurationName: 'rpwdc3', securityResultAttributes: '{"scanner": "Veracode", "applicationName": "Parts Unlimited YAML", "buildVersion": "", "securityToolId": ""}'
+                     //snDevOpsSecurityResult configurationName: 'rpwdc3', securityResultAttributes: '{"scanner": "Veracode", "applicationName": "Parts Unlimited YAML", "buildVersion": "", "securityToolId": ""}'
 		      //snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076","securityToolId": "632ff27387d10610597bca26cebb3576"}'
 	 	      //snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
 			
@@ -57,7 +57,7 @@ pipeline {
     
     stage('Deploy') {
               steps {
-                snDevOpsChange changeCreationTimeOut: 3600, changeRequestDetails: '{ "attributes": { "short_description": "Test description", "priority": "1", "start_date": "2021-02-05 08:00:00", "end_date": "2022-04-05 08:00:00", "justification": "test justification", "description": "test description", "cab_required": true, "comments": "This update for work notes is from jenkins file", "work_notes": "test work notes", "assignment_group": "a715cd759f2002002920bde8132e7018" }, "setCloseCode": false, "autoCloseChange": true }', changeStepTimeOut: 18000, configurationName: 'rpwdc3', pollingInterval: 60
+                snDevOpsChange changeCreationTimeOut: 3600, changeRequestDetails: '{ "attributes": { "short_description": "Test description", "priority": "1", "start_date": "2021-02-05 08:00:00", "end_date": "2022-04-05 08:00:00", "justification": "test justification", "description": "test description", "cab_required": true, "comments": "This update for work notes is from jenkins file", "work_notes": "test work notes", "assignment_group": "a715cd759f2002002920bde8132e7018" }, "setCloseCode": false, "autoCloseChange": true }', changeStepTimeOut: 18000, configurationName: 'DevOps-rpwdc2.service-now.com-1722935842329', pollingInterval: 60
                 
   		  
               }
