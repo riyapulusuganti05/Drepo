@@ -102,10 +102,10 @@ pipeline {
 			sh '${SCANNER_HOME}/bin/sonar-scanner'
 		} else {
 			sh 'mvn clean verify sonar:sonar \
-			    -Dsonar.login=facaf61df59f71cf51496614bc1f812c9b3aa911 \
+			    -Dsonar.login=70ca77776d514897303e8ecccf214c00ad89e6af \
 			    -Dsonar.host.url=https://sonarcloud.io \
-			    -Dsonar.organization=awasthi1210 \
-			    -Dsonar.projectKey=awasthi1210_servicenow-devops-change'
+			    -Dsonar.organization=ramarajupolanki \
+			    -Dsonar.projectKey=ramarajupolanki_ServiceNow-DevOps-Change-Sample'
 			  //  -Dsonar.branch.name=${env.GIT_BRANCH}
 		}
 	}
