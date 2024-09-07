@@ -15,7 +15,7 @@ pipeline {
        maven 'Maven'
    }  
    environment {
-	 SCANNER_HOME = tool 'sonarScanner'
+	 SCANNER_HOME = tool 'sonarScanner' 
 	}  
   stages {
        stage('Build !@') {
@@ -109,7 +109,7 @@ stage('Merge and Deploy') {
 
 
  def sonarSummaries() {
-	withSonarQubeEnv('sonarcloud.io'){
+	withSonarQubeEnv('sonarcloud2.io'){
 	   if(fileExists("sonar-project.properties")) {
 			sh '${SCANNER_HOME}/bin/sonar-scanner'
 		} else {
