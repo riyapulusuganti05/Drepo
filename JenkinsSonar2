@@ -11,7 +11,7 @@ def currStageName = "none"
  
 pipeline {  
   agent any 
-  tools { 
+  tools {  
        maven 'Maven'  
    } 
    environment {
