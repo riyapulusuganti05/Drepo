@@ -9,7 +9,7 @@ def changeRequestNumber = "null"
 def buildNo ="${env.BUILD_NUMBER}"
 def currStageName = "none"
   
-pipeline {  
+pipeline {   
   agent any  
   tools {  
        maven 'Maven'  
