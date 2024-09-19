@@ -44,7 +44,7 @@ pipeline {
                     def uploadSpec = """{
                         "files": [{
                             "pattern": "/tmp/app-devops-jenkins-${env.BUILD_NUMBER}-SNAPSHOT.jar",
-                            "target": "riya-libs-snapshot-local/${env.BUILD_NUMBER}/"
+                            "target": "riya-libs-snapshot-l-maven-remote/${env.BUILD_NUMBER}/"
                         }]
                     }"""
                     
