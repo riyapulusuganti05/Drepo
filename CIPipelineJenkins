@@ -79,7 +79,7 @@ pipeline {
             steps {
                 echo "Running Security step ..."
                 // Uncomment and configure the correct scanner if needed
-                 snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode", "applicationName": "${env.VERACODE_APPLICATION_NAME}"}'
+                // snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode", "applicationName": "${env.VERACODE_APPLICATION_NAME}"}'
             }
         }
     }
