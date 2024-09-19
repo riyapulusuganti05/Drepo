@@ -7,7 +7,7 @@ def releasePipelineName = "CDRiyaScripted" // Ensure you enter the correct relea
 pipeline {
     agent any
 
-    tools {
+    tools { 
         maven 'Maven'
     }
 
