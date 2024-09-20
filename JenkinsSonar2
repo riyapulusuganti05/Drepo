@@ -49,20 +49,28 @@ pipeline {
         }
         stage('Register Artifact') {
           steps {
-                 echo 'Jfrog artifact'
-                script {
-                    def server = Artifactory.server 'JFROGRIYA'
-                    def uploadSpec = """{
-                        "files": [{
-                            "pattern": "/tmp/app-devops-jenkins-${env.BUILD_NUMBER}-SNAPSHOT.jar",
-                            "target": "riya-libs-snapshot-l-libs-release/${env.BUILD_NUMBER}/"
-                        }]
-                    }"""
-                    def buildInfo = server.upload(uploadSpec)
-                    server.publishBuildInfo(buildInfo)
-                }
+                echo 'Hello World'
+            writeFile file: "/tmp/app-devops-jenkins-${env.BUILD_NUMBER}-SNAPSHOT.jar", text: 'This is a test'
+            writeFile file: "/tmp/app-devops-jenkins2-${env.BUILD_NUMBER}-SNAPSHOT.jar", text: 'This is a test'
+    
             }
-        }
+            
+            post { 
+                always { 
+        script { 
+                 def server = Artifactory.server 'JFROGRIYA'
+                 def uploadSpec = """{
+                    "files": [{
+                       "pattern": "/tmp/app-devops-jenkins-${env.BUILD_NUMBER}-SNAPSHOT.jar",
+                       "target": "riya-libs-snapshot-l-libs-release//${env.BUILD_NUMBER}/"
+                    }]
+                 }"""
+
+              def buildInfo = server.upload(uploadSpec) 
+              server.publishBuildInfo buildInfo   
+        }}
+       }
+       
         stage('Deploy') {
             steps {
                 script {
