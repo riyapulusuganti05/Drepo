@@ -48,8 +48,8 @@ pipeline {
             }
         }
         stage('Register Artifact') {
-        echo 'Jfrog artifact'
-            steps {
+          steps {
+                 echo 'Jfrog artifact'
                 script {
                     def server = Artifactory.server 'JFROGRIYA'
                     def uploadSpec = """{
