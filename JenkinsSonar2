@@ -45,7 +45,7 @@ pipeline {
                 echo 'Security ....'
                 // Example security integration (commented out)
                 // snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076", "securityToolId": "632ff27387d10610597bca26cebb3576"}'
-                snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
+               // snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
             }
         }
         stage('Register Artifact') {
