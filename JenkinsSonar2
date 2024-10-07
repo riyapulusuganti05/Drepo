@@ -95,7 +95,7 @@ pipeline {
                         "branchName": "main"
                     }""")
                     
-                    snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "adffaa9e4370211072b7f6be5bb8f2ed"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 60
+                    snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "62d10fa1c303101035ae3f52c1d3aec1"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 60
                     stageName = "Deploy"
                     
                     changeRequestNumber = snDevOpsGetChangeNumber(changeDetails: """{"stage_name":"${stageName}"}""")
