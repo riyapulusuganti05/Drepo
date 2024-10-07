@@ -96,7 +96,7 @@ pipeline {
                     }""")
                     
                    // snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "62d10fa1c303101035ae3f52c1d3aec1"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 60
-                    snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "e55d0bfec343101035ae3f52c1d3ae49","std_change_template"="126db729b76033004f68badcde11a973"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 60
+                    snDevOpsChange changeRequestDetails: '{ "attributes": {"chg_model": "e55d0bfec343101035ae3f52c1d3ae49","standard_change_template"="126db729b76033004f68badcde11a973"},"autoCloseChange": false}',changeStepTimeOut: 18000, pollingInterval: 60
                     stageName = "Deploy"
                     
                     changeRequestNumber = snDevOpsGetChangeNumber(changeDetails: """{"stage_name":"${stageName}"}""")
