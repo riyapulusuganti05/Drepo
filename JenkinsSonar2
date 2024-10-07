@@ -48,7 +48,7 @@ pipeline {
                 //  snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
             }
         }
-        stage('Register Artifact') {
+      /*  stage('Register Artifact') {
           steps {
                 echo 'Hello World'
             writeFile file: "/tmp/app-devops-jenkins-${env.BUILD_NUMBER}-SNAPSHOT.jar", text: 'This is a test'
@@ -71,13 +71,13 @@ pipeline {
               server.publishBuildInfo buildInfo   
         }}
        }
-      }
+      }*/
        
         stage('Deploy') {
             steps {
                 script {
                     echo 'Running deploy stage'
-                  /*  snDevOpsArtifact(artifactsPayload: """{
+                    snDevOpsArtifact(artifactsPayload: """{
                         "artifacts": [{
                             "name": "${artifactname}", 
                             "version": "1.${env.BUILD_NUMBER}",
@@ -85,7 +85,7 @@ pipeline {
                             "repositoryName": "${repoName}"
                         }],
                         "branchName": "main"
-                    }""")*/
+                    }""")
                     snDevOpsPackage(name: "${pkgName}-${env.BUILD_NUMBER}", artifactsPayload: """{
                         "artifacts": [{
                             "name": "${artifactname}",
