@@ -45,8 +45,8 @@ pipeline {
             steps {
                 echo 'Security ....'
                 // Example security integration (commented out)
-                 snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076", "securityToolId": "76ce79539745521003267d56f053afe7"}'
-                 // snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : '76ce79539745521003267d56f053afe7'}"
+               //  snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Checkmarx SAST", "projectId": "1076", "securityToolId": "76ce79539745521003267d56f053afe7"}'
+                  snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : ''}"
             }
         }
       /*  stage('Register Artifact') {
